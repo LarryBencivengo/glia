@@ -20,6 +20,71 @@ logger.addFilter(dup_filter)
 processes = multiprocessing.cpu_count()
 plot_directory = None
 
+# (x,y) Larry modified this from Tyler's original because there is no channel at position 15 [(0,4) in Tyler's scheme]
+#       There are only 59 channels, not 60 (8 x 8 grid missing all 4 corners and 1 more on the left side of the array)
+channel_map = {
+    1: (3,6),
+    2: (3,7),
+    3: (3,5),
+    4: (3,4),
+    5: (2,7),
+    6: (2,6),
+    7: (1,7),
+    8: (2,5),
+    9: (1,6),
+    10: (0,6),
+    11: (1,5),
+    12: (0,5),
+    13: (2,4),
+    14: (1,4),
+    15: (0,3),
+    16: (1,3),
+    17: (2,3),
+    18: (0,2),
+    19: (1,2),
+    20: (0,1),
+    21: (1,1),
+    22: (2,2),
+    23: (1,0),
+    24: (2,1),
+    25: (2,0),
+    26: (3,3),
+    27: (3,2),
+    28: (3,0),
+    29: (3,1),
+    30: (4,1),
+    31: (4,0),
+    32: (4,2),
+    33: (4,3),
+    34: (5,0),
+    35: (5,1),
+    36: (6,0),
+    37: (5,2),
+    38: (6,1),
+    39: (7,1),
+    40: (6,2),
+    41: (7,2),
+    42: (5,3),
+    43: (6,3),
+    44: (7,3),
+    45: (7,4),
+    46: (6,4),
+    47: (5,4),
+    48: (7,5),
+    49: (6,5),
+    50: (7,6),
+    51: (6,6),
+    52: (5,5),
+    53: (6,7),
+    54: (5,6),
+    55: (5,7),
+    56: (4,4),
+    57: (4,5),
+    58: (4,7),
+    59: (4,6),
+}
+
+'''
 # (x,y)
 channel_map = {
     1: (3,6),
@@ -36,7 +101,7 @@ channel_map = {
     12: (0,5),
     13: (2,4),
     14: (1,4),
-    15: (0,4),
+    15: (0,4),  # there is no channel (0,4) [15 using the mea numbering system].  This an all following channels were renumbered
     16: (0,3),
     17: (1,3),
     18: (2,3),
@@ -83,3 +148,4 @@ channel_map = {
     59: (4,7),
     60: (4,6)
 }
+'''
